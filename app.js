@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 /*
     <div id = "parent">
         <div id = "child1">
@@ -16,7 +19,7 @@ const parent = React.createElement("div",
     [React.createElement("div",{
         id:"child1"
     },
-    [React.createElement("h1",{},"Rohini Rajasimman Learning React"), React.createElement("h2",{},"Learning Day 2")]), 
+    [React.createElement("h1",{},"Rohini Rajasimman Learning React🚀"), React.createElement("h2",{},"Learning Day 2")]), 
     React.createElement("div",{
         id:"child2"
     },
