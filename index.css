@@ -25,7 +25,7 @@
 }
 .res-card {
     width: 200px;
-    height: 440px;
+  /*  height: 440px; */
     border-radius: 10px; /* Add rounded corners for a more modern look */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Improved box shadow for a more subtle effect */
     font-family: 'Roboto', sans-serif;
