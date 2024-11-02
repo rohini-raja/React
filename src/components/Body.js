@@ -9,7 +9,7 @@ const Body = () => {
         <div className="body"> 
             <div className="filter">
                 <button className="filter-btn" onClick={(res)=>{
-                    const filteredlist = resList.filter((res) => res.info.avgRating > 4.2);
+                    const filteredlist = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
                     setListofRestaurants(filteredlist);
                 }
                 }>Top-Rated Restaurants</button>
