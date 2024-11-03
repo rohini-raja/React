@@ -6,7 +6,6 @@ const Body = () => {
    // console.log(resList);
     const [listOfRestaurants,setListofRestaurants] = useState([]);
     console.log("listofres:", listOfRestaurants);
-
     useEffect(
         () => {
             console.log("UseEffect called");
@@ -20,8 +19,11 @@ const Body = () => {
             console.log("json :", json);
             setListofRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         };
-
-        console.log("Body rendeered");
+    if(listOfRestaurants.length == 0){
+            console.log("Loading...");
+            return <h1>Loading...</h1>;
+    
+    }
     return (
         <div className="body"> 
             <div className="filter">

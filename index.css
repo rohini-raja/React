@@ -24,37 +24,85 @@
     padding:10px;
 }
 .res-card {
-    width: 200px;
-  /*  height: 440px; */
-    border-radius: 10px; /* Add rounded corners for a more modern look */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Improved box shadow for a more subtle effect */
-    font-family: 'Roboto', sans-serif;
-    margin: 10px; /* Increase margin for better spacing */
-    padding: 15px; /* Increase padding for more comfortable reading */
-    background-color: #f5f5f5; /* Add a light gray background for a cleaner appearance */
-    border: 2px solid transparent; /* Set initial border to transparent */
-    transition: border-color 0.5s ease-in-out; /* Add transition for smooth color change */
-
+    width: 220px;
+    border-radius: 12px;
+   /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for more depth */
+    font-family: 'Gilroy', 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    margin: 15px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for contrast */
+    border: 2px solid #e0e0e0; /* Light border for a polished look */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all effects */
+    /* Adding slight 3D effect */
+    transform: translateY(0);
 }
+
+.res-card:hover {
+    transform: translateY(-8px); /* Lift card on hover for a 3D effect */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); /* Increase shadow on hover */
+    border-color: #0cad04; /* Change border color on hover for a dynamic look */
+}
+
+.res-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.res-card:hover img {
+    transform: scale(1.05); /* Slight zoom-in effect on image when hovering */
+}
+
+.res-card h3 {
+    font-size: 1.2rem;
+    color: #161616;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.res-card p {
+    font-size: 0.9rem;
+    color: #666666;
+    margin: 5px 0;
+}
+
+/* Adding a highlight color and styling for the rating text */
+.rating {
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #0a6d0acc;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 2px 0;
+    margin-bottom: 6px;
+    width: 45px;
+}
+
+.res-card .delivery-time {
+    font-size: 0.8rem;
+    color: #777777;
+    margin-top: 10px;
+}
+
+
 .res-container {
     display:flex;
     flex-wrap:wrap ;
 }
-.res-card:hover {
+/*.res-card:hover {
     cursor: pointer;
     border: 1px solid black;
     /*outline-color: #00ff00;
-    border-width: 4px; /* Increase border width on hover for a more pronounced effect */
-}
-
+    border-width: 4px; /* Increase border width on hover for a more pronounced effect 
+}*/
 .res-logo {
     width: 100%;
     /*margin: 2px;*/
 }
 
 .filter-btn{
-    padding: 10px;
     margin: 10px;
-    background-color: #f5f5f5;
     cursor: pointer;
 }
