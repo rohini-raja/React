@@ -9,7 +9,16 @@ const Body = () => {
     useEffect(
         () => {
             console.log("UseEffect called");
+            fetchData();
         },[]);
+        const fetchData = async () => {
+           // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9709162&lng=80.2467688&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+           const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0832022&lng=80.27552519999999&collection=138501&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+            const json = await data.json(); //convert the data to json
+            console.log("json :", json);
+            setListofRestaurants(json.data.cards[2].card.card.info);
+        };
+
         console.log("Body rendeered");
     return (
         <div className="body"> 
@@ -22,20 +31,10 @@ const Body = () => {
             </div>
             <div className="res-container">
               {
-                listOfRestaurants.map((restaurant)=> {
-                    if(!restaurant.info) {
-                        console.log("restaurant.info is undefined");
-                        return null;
-                    }
-                    return (
-                        <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>
-                    );
-                })
-
-                // listOfRestaurants.map((restaurant)=>(
-                // <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>)
-                // )
-              } 
+                listOfRestaurants.map((restaurant)=>(
+                <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>)
+                )
+              } ;
             </div>
         </div>
     );
