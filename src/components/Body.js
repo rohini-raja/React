@@ -4,8 +4,13 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 const Body = () => {
    // console.log(resList);
+   // whenever the state variable updates, react will re-render the component - reconciliation cycle.
     const [listOfRestaurants,setListofRestaurants] = useState([]);
+    const [filteredRestaurants,setFilteredRestaurants] = useState([]);
+    const [searchText,setSearchText] = useState("");
     console.log("listofres:", listOfRestaurants);
+    console.log("searchText:", searchText);
+    console.log("Rendering now");
     useEffect(
         () => {
             console.log("UseEffect called");
@@ -18,6 +23,7 @@ const Body = () => {
             const json = await data.json(); //convert the data to json
             console.log("json :", json);
             setListofRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         };
 
 // Conditional rendering
@@ -31,9 +37,23 @@ const Body = () => {
                 }
                 }>Top-Rated Restaurants</button>
             </div>
+            <div className="search">
+                <input type="text" placeholder="Search for restaurants" value={searchText} 
+                onChange={(e)=> {
+                    setSearchText(e.target.value);
+                }}/>
+                <button 
+                onClick=
+                    {()=>{
+                    //Write logic to search for restaurants and update ui
+                    //search text - get this variable to a local state variable
+                        const filteredRes = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setFilteredRestaurants(filteredRes);
+                }}>Search</button>
+            </div>
             <div className="res-container">
               {
-                listOfRestaurants.map((restaurant)=>(
+                filteredRestaurants.map((restaurant)=>(
                 <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>)
                 )
               } ;
