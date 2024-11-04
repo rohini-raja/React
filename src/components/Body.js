@@ -19,17 +19,14 @@ const Body = () => {
             console.log("json :", json);
             setListofRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         };
-    if(listOfRestaurants.length == 0){
-        return <Shimmer/>
-            // console.log("Loading...");
-            // return <h1>Loading...</h1>;
-    
-    }
-    return (
+
+// Conditional rendering
+// Ternary operator
+    return listOfRestaurants.length === 0 ? <Shimmer/> : (
         <div className="body"> 
             <div className="filter">
                 <button className="filter-btn" onClick={(res)=>{
-                    const filteredlist = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
+                    const filteredlist = listOfRestaurants.filter((res) => res.info.avgRating > 4.5);
                     setListofRestaurants(filteredlist);
                 }
                 }>Top-Rated Restaurants</button>
